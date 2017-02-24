@@ -9,6 +9,8 @@ import com.mygdx.game.ui.PlayerButton;
 import com.mygdx.game.ui.ResetScoreButton;
 import com.mygdx.game.ui.ScoreLabel;
 
+import pl.javadevmatt.tutorialclicker.entities.FlyingObject;
+
 public class GameplayScreen extends AbstractScreen{
 	
 	private Image bgImage;
@@ -16,6 +18,7 @@ public class GameplayScreen extends AbstractScreen{
 	private PlayerButton playerButton;
 	private ResetScoreButton resetScoreButton;
 	private ScoreLabel scoreLabel;
+	private FlyingObject flyingObject1;
 
 	public GameplayScreen(TutorialClickerGame game) {
 		super(game);
@@ -28,8 +31,15 @@ public class GameplayScreen extends AbstractScreen{
 		initPlayerButton();
 		initResetScoreButton();
 		initScoreLabel();
+		initFlyingObjects();
 	}
 	
+	private void initFlyingObjects() {
+		flyingObject1 = new FlyingObject(FlyingObject.MONEY);
+		stage.addActor(flyingObject1);
+		flyingObject1.flyLikeHell();
+	}
+
 	private void initBg() {
 		bgImage = new Image(new Texture("bg.png"));
 		stage.addActor(bgImage);
