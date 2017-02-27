@@ -10,6 +10,7 @@ import com.mygdx.game.ui.ResetScoreButton;
 import com.mygdx.game.ui.ScoreLabel;
 
 import pl.javadevmatt.tutorialclicker.entities.FlyingObject;
+import pl.javadevmatt.tutorialclicker.entities.FlyingObject.FlyingObjectType;
 
 public class GameplayScreen extends AbstractScreen{
 	
@@ -35,7 +36,7 @@ public class GameplayScreen extends AbstractScreen{
 	}
 	
 	private void initFlyingObjects() {
-		flyingObject1 = new FlyingObject(FlyingObject.MONEY);
+		flyingObject1 = new FlyingObject(FlyingObjectType.PASSIVE, game);
 		stage.addActor(flyingObject1);
 		flyingObject1.flyLikeHell();
 	}
