@@ -3,14 +3,12 @@ package com.mygdx.game.screens;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.game.TutorialClickerGame;
+import com.mygdx.game.controllers.FlyingObjectController;
 import com.mygdx.game.entities.Player;
 import com.mygdx.game.ui.IClickCallback;
 import com.mygdx.game.ui.PlayerButton;
 import com.mygdx.game.ui.ResetScoreButton;
 import com.mygdx.game.ui.ScoreLabel;
-
-import pl.javadevmatt.tutorialclicker.entities.FlyingObject;
-import pl.javadevmatt.tutorialclicker.entities.FlyingObject.FlyingObjectType;
 
 public class GameplayScreen extends AbstractScreen{
 	
@@ -19,7 +17,8 @@ public class GameplayScreen extends AbstractScreen{
 	private PlayerButton playerButton;
 	private ResetScoreButton resetScoreButton;
 	private ScoreLabel scoreLabel;
-	private FlyingObject flyingObject1;
+	//private FlyingObject flyingObject1;
+	private FlyingObjectController flyingObjectController;
 
 	public GameplayScreen(TutorialClickerGame game) {
 		super(game);
@@ -32,13 +31,17 @@ public class GameplayScreen extends AbstractScreen{
 		initPlayerButton();
 		initResetScoreButton();
 		initScoreLabel();
-		initFlyingObjects();
+		initFlyingObjectsController();
 	}
 	
-	private void initFlyingObjects() {
-		flyingObject1 = new FlyingObject(FlyingObjectType.PASSIVE, game);
-		stage.addActor(flyingObject1);
-		flyingObject1.flyLikeHell();
+//	private void initFlyingObjects() {
+//		flyingObject1 = new FlyingObject(FlyingObjectType.PASSIVE, game);
+//		stage.addActor(flyingObject1);
+//		flyingObject1.flyLikeHell();
+//	}
+
+	private void initFlyingObjectsController() {
+		flyingObjectController = new FlyingObjectController(game, stage);
 	}
 
 	private void initBg() {
