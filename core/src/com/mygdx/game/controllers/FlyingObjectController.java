@@ -12,38 +12,49 @@ import pl.javadevmatt.tutorialclicker.entities.FlyingObject.FlyingObjectType;
 public class FlyingObjectController {
 
 	private int spawnTime;
-	
-	public FlyingObjectController(TutorialClickerGame game, Stage stage){
+
+	public FlyingObjectController(TutorialClickerGame game, Stage stage) {
 		init(game, stage);
 	}
 
 	private void init(final TutorialClickerGame game, final Stage stage) {
 		randomizeSpawnTime();
-		
-		Timer.schedule(new Task(){
-			
+
+		Timer.schedule(new Task() {
+
 			@Override
 			public void run() {
 
-				FlyingObject flyingObject = null;
-				
-				if(MathUtils.randomBoolean()){
-					flyingObject = new FlyingObject(FlyingObjectType.MONEY, game);
-				}else{
-					flyingObject = new FlyingObject(FlyingObjectType.PASSIVE, game);
-				}
-				
-				stage.addActor(flyingObject);
-				flyingObject.flyLikeHell();
-				randomizeSpawnTime();
+				Timer.schedule(new Task() {
+					@Override
+					public void run() {
+
+						addRandomFlyingObjectToStage(game, stage);
+						randomizeSpawnTime();
+					}
+				}, spawnTime);
+
 			}
-		}, spawnTime,spawnTime );
+		}, 5, 5);
 	}
 
 	private void randomizeSpawnTime() {
 
 		spawnTime = MathUtils.random(5, 10);
 	}
-	
-	
+
+	private void addRandomFlyingObjectToStage(TutorialClickerGame game, Stage stage) {
+
+		FlyingObject flyingObject = null;
+
+		if (MathUtils.randomBoolean()) {
+			flyingObject = new FlyingObject(FlyingObjectType.MONEY, game);
+		} else {
+			flyingObject = new FlyingObject(FlyingObjectType.PASSIVE, game);
+		}
+
+		stage.addActor(flyingObject);
+		flyingObject.flyLikeHell();
+	}
+
 }

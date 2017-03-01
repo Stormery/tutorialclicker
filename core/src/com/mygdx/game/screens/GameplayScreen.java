@@ -17,7 +17,6 @@ public class GameplayScreen extends AbstractScreen{
 	private PlayerButton playerButton;
 	private ResetScoreButton resetScoreButton;
 	private ScoreLabel scoreLabel;
-	//private FlyingObject flyingObject1;
 	private FlyingObjectController flyingObjectController;
 
 	public GameplayScreen(TutorialClickerGame game) {
@@ -34,12 +33,6 @@ public class GameplayScreen extends AbstractScreen{
 		initFlyingObjectsController();
 	}
 	
-//	private void initFlyingObjects() {
-//		flyingObject1 = new FlyingObject(FlyingObjectType.PASSIVE, game);
-//		stage.addActor(flyingObject1);
-//		flyingObject1.flyLikeHell();
-//	}
-
 	private void initFlyingObjectsController() {
 		flyingObjectController = new FlyingObjectController(game, stage);
 	}
