@@ -63,6 +63,8 @@ public class FlyingObject extends Image {
 
 		if(FlyingObjectType.MONEY.equals(type)){
 			game.getSoundService().playMoneySound();
+		} else {
+			game.getSoundService().playBookSound();
 		}
 	}
 
@@ -73,6 +75,9 @@ public class FlyingObject extends Image {
 		else if(FlyingObjectType.PASSIVE.equals(type)){
 			game.addPassiveIncome();
 		}
+		
+		game.getSoundService().playPickSound();
+		FlyingObject.this.remove();
 		
 	}
 	private static String getTextureString(FlyingObjectType type) {
