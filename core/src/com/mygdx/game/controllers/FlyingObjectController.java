@@ -5,9 +5,9 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.Timer.Task;
 import com.mygdx.game.TutorialClickerGame;
+import com.mygdx.game.entities.FlyingObject;
+import com.mygdx.game.entities.FlyingObject.FlyingObjectType;
 
-import pl.javadevmatt.tutorialclicker.entities.FlyingObject;
-import pl.javadevmatt.tutorialclicker.entities.FlyingObject.FlyingObjectType;
 
 public class FlyingObjectController {
 

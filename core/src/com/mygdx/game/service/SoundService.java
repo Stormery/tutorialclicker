@@ -34,7 +34,7 @@ public class SoundService {
 	}
 
 	public void playJumpSound() {
-		jump.play(0.3f);
+		jump.play(0.5f);
 		
 	}
 
